@@ -16,7 +16,7 @@ const closeIssue = require('./assets/js/close-issue');
 const errorPage = require('./assets/js/error');
 
 const owner = 'apodi';
-const token = '<place token here>'
+const token = '<token>';
 
 octokit.authenticate({
     type: 'oauth',

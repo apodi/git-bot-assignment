@@ -1,4 +1,3 @@
-//const API_URL = 'https://swapi.co/api';
 
 // Custom API error to throw
 function ApiError(message, data, status) {
