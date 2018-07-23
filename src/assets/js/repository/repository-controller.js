@@ -1,4 +1,4 @@
-const octokit = require('../octokit-rest-service');
+const {octokit} = require('../octokit-rest-service');
 
 module.exports = (e) => {
     console.log('asdasdasdasdasdasd');

@@ -1,6 +1,6 @@
 const octokit = require('@octokit/rest')();
 
-const token = '<place token here>';
+const token = '<enter token here>';
 const owner = 'apodi';
 
 octokit.authenticate({
