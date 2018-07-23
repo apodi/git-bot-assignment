@@ -15,7 +15,6 @@ function listIssue(octokitObj,obj) {
             heading.classList.add("mb-0");
             cardHeaderDiv.appendChild(heading);
             
-        
             var button = document.createElement('button');
             button.classList.add("btn");
             button.classList.add("btn-link");
@@ -37,12 +36,10 @@ function listIssue(octokitObj,obj) {
         
             accordion.appendChild(cardDiv);
            }
-    })
-   
-
-    var listContainer = document.getElementById("issue-listing");
+           var listContainer = document.getElementById("issue-listing");
     
-    listContainer.appendChild(accordion);
+           listContainer.appendChild(accordion);
+    })
  
  }
  module.exports = listIssue;

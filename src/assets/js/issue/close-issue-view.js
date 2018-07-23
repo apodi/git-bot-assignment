@@ -1,12 +1,16 @@
-function addComment(octokitObj, owner) {
-    octokitObj.repos.getForUser({
+
+const {octokit,owner} = require('../octokit-rest-service');
+const {closeIssueHandler} = require('./issue-controller');
+
+function closeIssue() {
+    octokit.repos.getForUser({
         username: owner
     }).then(result => {
         console.log(result.data);
         var x = document.getElementById("gitform");
 
         var createform = document.createElement('form');
-        createform.setAttribute("id", "add-comment"); // Setting method Attribute on form
+        createform.setAttribute("id", "close-issue"); // Setting method Attribute on form
         x.appendChild(createform);
         var alertDiv = document.createElement('div');
         //alertDiv.innerHTML = "Repository create successfully"
@@ -18,10 +22,10 @@ function addComment(octokitObj, owner) {
         createform.appendChild(alertDiv);
 
         var heading = document.createElement('h2'); // Heading 
-        heading.innerHTML = "Add Comment";
+        heading.innerHTML = "Close Issue";
         createform.appendChild(heading);
         var headingDescription = document.createElement('p');
-        headingDescription.innerHTML = "Add comment to any issue";
+        headingDescription.innerHTML = "Close any repository issue";
         createform.appendChild(headingDescription);
 
         var line = document.createElement('hr'); //giving horizontal row after heading
@@ -48,8 +52,8 @@ function addComment(octokitObj, owner) {
         selectElem.setAttribute("id", "repository-list");
         selectElem.classList.add("form-control");
         selectElem.classList.add("form-control-sm");
-        
-        var optionElem =  document.createElement('option');
+
+        var optionElem = document.createElement('option');
         optionElem.innerHTML = "select repository";
         optionElem.value = "#";
         selectElem.appendChild(optionElem);
@@ -60,39 +64,27 @@ function addComment(octokitObj, owner) {
             selectElem.appendChild(optionElem);
         }
         formgroupDiv.appendChild(selectElem);
-       
+
         var formgroupDiv = document.createElement('div');
         formgroupDiv.classList.add("form-group");
         formgroupDiv.setAttribute("id", "issue-listing");
-    
-        
+
+
         createform.appendChild(formgroupDiv);
-       
-        var formgroupDiv = document.createElement('div');
-        formgroupDiv.classList.add("form-group");
-        createform.appendChild(formgroupDiv);
-    
-        var desclabel = document.createElement('label'); 
-        desclabel.setAttribute("for", "comment");
-        desclabel.innerHTML = "Comment : ";
-        formgroupDiv.appendChild(desclabel);
-    
-        var descelement = document.createElement('textarea'); 
-        descelement.setAttribute("name", "comment");
-        descelement.setAttribute("id", "comment");
-        descelement.setAttribute("rows", 3);
-        descelement.classList.add("form-control");
-        formgroupDiv.appendChild(descelement);
-        
+
+
         // Append Submit Button
         var submitelement = document.createElement('input');
         submitelement.setAttribute("type", "submit");
         submitelement.setAttribute("name", "dsubmit");
         submitelement.classList.add("btn");
         submitelement.classList.add("btn-primary");
-        submitelement.setAttribute("value", "Add Comment");
+        submitelement.setAttribute("value", "close issue");
         createform.appendChild(submitelement);
     })
 
 }
-module.exports = addComment;
+
+//close issue
+$(document).on('submit', '#close-issue',closeIssueHandler );
+module.exports = closeIssue;

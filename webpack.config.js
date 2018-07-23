@@ -22,6 +22,14 @@ const config = {
   },
   module: {
     rules: [
+      //eslint-loader
+      {
+        enforce: "pre",
+        test: /\.js$/,
+        include: /src/,
+        exclude: /node_modules/,
+        loader: "eslint-loader",
+      },
       //babel-loader
       {
         test: /\.js$/,

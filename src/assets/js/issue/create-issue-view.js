@@ -1,6 +1,8 @@
-function createIssue(octokitObj,title,owner) {
+const {octokit,owner} = require('../octokit-rest-service');
+const {createIssueHandler} = require('./issue-controller');
 
-   octokitObj.repos.getForUser({username : owner}).then(result => {
+function createIssue(title) {
+	octokit.repos.getForUser({username : owner}).then(result => {
 	   console.log(result.data);
 	   var x = document.getElementById("gitform");
 	var alertDiv = document.createElement('div');
@@ -102,4 +104,8 @@ function createIssue(octokitObj,title,owner) {
 	 createform.appendChild(submitelement);
    })
 }
+
+//create issue
+$(document).on('submit', '#create-issue',createIssueHandler);
+
 module.exports = createIssue;

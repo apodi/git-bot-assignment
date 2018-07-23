@@ -1,4 +1,3 @@
-
 // Custom API error to throw
 function ApiError(message, data, status) {
   let response = null;
@@ -26,6 +25,19 @@ const fetchResource = (API_URL, path, userOptions = {}) => {
   const defaultOptions = {};
   // Define default headers
   const defaultHeaders = {};
+
+
+  // const options = {
+  //   // Merge options
+  //   ...defaultOptions,
+  //   ...userOptions,
+  //   // Merge headers
+  //   headers: {
+  //     ...defaultHeaders,
+  //     ...userOptions.headers,
+  //   },
+  // };
+
 
   var _extends = Object.assign || function (target) {
     for (var i = 1; i < arguments.length; i++) {

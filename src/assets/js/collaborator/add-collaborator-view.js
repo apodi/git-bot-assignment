@@ -1,6 +1,10 @@
-function addCollaborator(octokitObj,owner) {
+const {octokit,owner} = require('../octokit-rest-service');
+const {addCollaboratorHandler} = require('./collaborator-controller');
 
-    octokitObj.repos.getForUser({username : owner}).then(result => {
+
+
+function addCollaborator() {
+    octokit.repos.getForUser({username : owner}).then(result => {
         console.log(result.data);
      var x = document.getElementById("gitform");
      var alertDiv = document.createElement('div');
@@ -87,4 +91,7 @@ function addCollaborator(octokitObj,owner) {
       createform.appendChild(submitelement);
     })
  }
- module.exports = addCollaborator;
+
+ //add collaborator
+$(document).on('submit', '#add-collaborator',addCollaboratorHandler);
+module.exports = addCollaborator;
