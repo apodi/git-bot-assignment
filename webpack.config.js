@@ -38,7 +38,7 @@ const config = {
         use: {
           loader: "babel-loader",
           options: {
-            presets: ['env']
+            presets: ['latest','stage-0']
           }
         }
       },

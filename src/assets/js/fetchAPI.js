@@ -27,34 +27,34 @@ const fetchResource = (API_URL, path, userOptions = {}) => {
   const defaultHeaders = {};
 
 
-  // const options = {
-  //   // Merge options
-  //   ...defaultOptions,
-  //   ...userOptions,
-  //   // Merge headers
-  //   headers: {
-  //     ...defaultHeaders,
-  //     ...userOptions.headers,
-  //   },
-  // };
-
-
-  var _extends = Object.assign || function (target) {
-    for (var i = 1; i < arguments.length; i++) {
-      var source = arguments[i];
-      for (var key in source) {
-        if (Object.prototype.hasOwnProperty.call(source, key)) {
-          target[key] = source[key];
-        }
-      }
-    }
-    return target;
+  const options = {
+    // Merge options
+    ...defaultOptions,
+    ...userOptions,
+    // Merge headers
+    headers: {
+      ...defaultHeaders,
+      ...userOptions.headers,
+    },
   };
 
-  var options = _extends({}, defaultOptions, userOptions, {
-    // Merge headers
-    headers: _extends({}, defaultHeaders, userOptions.headers)
-  });
+
+  // var _extends = Object.assign || function (target) {
+  //   for (var i = 1; i < arguments.length; i++) {
+  //     var source = arguments[i];
+  //     for (var key in source) {
+  //       if (Object.prototype.hasOwnProperty.call(source, key)) {
+  //         target[key] = source[key];
+  //       }
+  //     }
+  //   }
+  //   return target;
+  // };
+
+  // var options = _extends({}, defaultOptions, userOptions, {
+  //   // Merge headers
+  //   headers: _extends({}, defaultHeaders, userOptions.headers)
+  // });
 
   // Build Url
   const url = `${ API_URL }/${ path }`;
